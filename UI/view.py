@@ -6,7 +6,7 @@ class View(ft.UserControl):
         super().__init__()
         # page stuff
         self._page = page
-        self._page.title = "TdP Flights manager 2026"
+        self._page.title = "TdP Flights Manager 2026"
         self._page.horizontal_alignment = 'CENTER'
         self._page.theme_mode = ft.ThemeMode.LIGHT
         # controller (it is not initialized. Must be initialized in the main, after the controller is created)
@@ -17,11 +17,11 @@ class View(ft.UserControl):
 
     def load_interface(self):
         # title
-        self._title = ft.Text("TdP Flights manager 2026", color="blue", size=24)
+        self._title = ft.Text("TdP Flights Manager 2026", color="blue", size=24)
         self._page.controls.append(self._title)
 
         #ROW1
-        self._txtInCMin = ft.TextField(label="N min compagnie")
+        self._txtInCMin = ft.TextField(label="N° min compagnie")
         self._btnAnalizzaAeroporti = ft.ElevatedButton(text="Analizza Aeroporti",
                                                        on_click=self._controller.handleAnalizza)
 
