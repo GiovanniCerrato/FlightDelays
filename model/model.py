@@ -16,11 +16,11 @@ class Model:
         nodes = DAO.getAllNodes(nMin,self._idMapAirports)
         self._graph.add_nodes_from(nodes)
 
-        print(f"N nodi: {len(self._graph.nodes)}, n archi: {len(self._graph.edges)}")
-        self._addEdges()
-        print(f"N nodi: {len(self._graph.nodes)}, n archi:{len(self._graph.edges)}")
-        self._graph.clear_edges()
-        self._addEdgeV2()
+        # print(f"N nodi: {len(self._graph.nodes)}, n archi: {len(self._graph.edges)}")
+        # self._addEdges()
+        # print(f"N nodi: {len(self._graph.nodes)}, n archi:{len(self._graph.edges)}")
+        # self._graph.clear_edges()
+        self._addEdgesV2()
         print(f"N nodi: {len(self._graph.nodes)}, n archi:{len(self._graph.edges)}")
 
         print(*(n for n in self._graph.nodes()))
@@ -36,10 +36,10 @@ class Model:
                 else:
                     self._graph.add_edge(t.aereoportoP, t.aereoportoA, weight=t.peso)
 
-    def _addEdgeV2(self):
+    def _addEdgesV2(self):
         allTratte = DAO.getAllEdgesV2(self._idMapAirports)
         for t in allTratte:
-            if t.aereoportoP in self._graph and t.aereoportoP in self._graph:
+            if t.aereoportoP in self._graph and t.aereoportoA in self._graph:
                 self._graph.add_edge(t.aereoportoP, t.aereoportoA, weight=t.peso)
 
     def getGraphDetails(self):
